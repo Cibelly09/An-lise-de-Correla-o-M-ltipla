@@ -1,5 +1,3 @@
-# --- 24/08
-
 
 # CARREGANDO BASES 
 
@@ -127,37 +125,6 @@ print(df_ACM)
 
 
 
-#################################################################333
-
-# REFINANDO O MAPA PARA CONSEGUIR VER OS TIPOS DE DEF
-
-# Exemplo de como destacar variáveis específicas no ggplot (como tipos de deficiência)
-library(ggplot2)
-
-colnames(df_ACM)
-
-# Análise da variabilidade para determinar o número de clusters com o método do cotovelo
-wss <- (nrow(df_ACM)-1)*sum(apply(df_ACM, 2, var))
-for (i in 2:10) wss[i] <- sum(kmeans(df_ACM, centers=i)$withinss)
-
-# Plotar o gráfico do cotovelo
-plot(1:10, wss, type="b", xlab="Número de Clusters", ylab="Soma dos Erros Quadrados")
-
-# Após determinar o número ideal, aplicar o K-means
-set.seed(123) # para reprodutibilidade
-kmeans_result <- kmeans(coordenadas_ACM, centers=ideal_clusters)
-
-# Plotar os resultados
-plot(coordenadas_ACM, col=kmeans_result$cluster, pch=20, cex=2)
-########################################################################
-
-
-#
-# Filtrar variáveis relevantes
-dados_filtro <- dados_acm[, c('SG_UF', 'QT_ELEITORES_DEFICIENCIA', 'QT_LOCAIS_ACESSIVEIS', 'CD_GENERO', 'CD_FAIXA_ETARIA')]
-
-
-
 # GERANDO UM MAPA 3D PARA VERIFICAR A PROFUNDIDADE DOS DADOS 
 
 # Criando a ACM
@@ -197,8 +164,6 @@ ACM_3D
 
 
 # Fim!
-
-# --------------------------------AQUI ACABOU A ANALISE OFICIAL EXPLICADA -----
 
 # Poderíamos fazer o mapa com as coordenadas obtidas por meio da matriz de Burt
 
@@ -286,18 +251,6 @@ df_coord_obs %>%
        y = paste("Dimensão 2:", paste0(round(perc_variancia[2], 2), "%")),
        color = "DS_RACA_COR") +
   theme_bw()
-
-# plotando para estados só para ver 
-df_coord_obs %>%
-  ggplot(aes(x = Axis1, y = Axis2, color = dados_fat$SG_UF)) +
-  geom_point() +
-  geom_vline(aes(xintercept = 0), linetype = "longdash", color = "grey48") +
-  geom_hline(aes(yintercept = 0), linetype = "longdash", color = "grey48") +
-  labs(x = paste("Dimensão 1:", paste0(round(perc_variancia[1], 2), "%")),
-       y = paste("Dimensão 2:", paste0(round(perc_variancia[2], 2), "%")),
-       color = "Estados") +
-  theme_bw()
-# não fez sentido com os estados
 
 # -- salvando os df
 write.csv(acm_red_filtered, "nova_base.csv", row.names = FALSE)
