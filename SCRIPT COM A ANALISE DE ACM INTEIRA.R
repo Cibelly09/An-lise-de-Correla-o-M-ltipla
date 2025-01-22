@@ -3,13 +3,13 @@
 
 dados_acm<- read.csv("perfil_eleitor_red.csv", sep = ",", header = TRUE, stringsAsFactors = TRUE)
 
-# Mostra as primeiras linhas do data frame
+# Mostrar as primeiras linhas do data frame
 head(dados_acm)  
 
-# Mostra a estrutura do data frame
+# Mostrar a estrutura do data frame
 str(dados_acm)   
 
-# Instalação e carregamento dos pacotes utilizados
+# Instalar e carregar pacotes utilizados
 pacotes <- c("plotly", 
              "tidyverse", 
              "ggrepel",
@@ -30,10 +30,11 @@ if(sum(as.numeric(!pacotes %in% installed.packages())) != 0){
   sapply(pacotes, require, character = T) 
 }
 
-# A função para a criação da ACM pede que sejam utilizados "fatores"
+# Para ACM - usar fatores, logo, fatore o DF
 dados_acm <- as.data.frame(unclass(dados_acm), stringsAsFactors=TRUE)
 
 # Tabelas de contingência (todas apresentam associação com alguma variável?)
+#tipo def e genero
 sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          var.col = dados_acm $DS_GENERO,
          show.exp = TRUE,
@@ -41,6 +42,7 @@ sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          show.col.prc = TRUE, 
          encoding = "UTF-8")
 
+#tipo de def e faixa etária
 sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          var.col = dados_acm $DS_FAIXA_ETARIA,
          show.exp = TRUE,
@@ -48,6 +50,7 @@ sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          show.col.prc = TRUE, 
          encoding = "UTF-8")
 
+#tipo de def e raça
 sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          var.col = dados_acm $DS_RACA_COR,
          show.exp = TRUE,
@@ -55,7 +58,7 @@ sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          show.col.prc = TRUE, 
          encoding = "UTF-8")
 
-
+#tipo de def e 
 sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          var.col = dados_acm $DS_GRAU_ESCOLARIDADE,
          show.exp = TRUE,
