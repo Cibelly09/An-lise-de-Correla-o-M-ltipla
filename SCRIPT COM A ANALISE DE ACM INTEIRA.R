@@ -1,5 +1,4 @@
-
-# CARREGANDO BASES 
+#Carregamento de base perfil eleitor reduzida
 
 dados_acm<- read.csv("perfil_eleitor_red.csv", sep = ",", header = TRUE, stringsAsFactors = TRUE)
 
@@ -30,11 +29,11 @@ if(sum(as.numeric(!pacotes %in% installed.packages())) != 0){
   sapply(pacotes, require, character = T) 
 }
 
-# Para ACM - usar fatores, logo, fatore o DF
+#Fatoração do DF necessária para a ACM
 dados_acm <- as.data.frame(unclass(dados_acm), stringsAsFactors=TRUE)
 
-# Tabelas de contingência (todas apresentam associação com alguma variável?)
-#tipo def e genero
+# Tabelas de contingência (todos as categorias devem possuir ao menos uma associação)
+#Tipo de deficiência e gênero
 sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          var.col = dados_acm $DS_GENERO,
          show.exp = TRUE,
@@ -42,7 +41,7 @@ sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          show.col.prc = TRUE, 
          encoding = "UTF-8")
 
-#tipo de def e faixa etária
+#Tipo de deficiência e Faixa Etária
 sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          var.col = dados_acm $DS_FAIXA_ETARIA,
          show.exp = TRUE,
@@ -50,7 +49,7 @@ sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          show.col.prc = TRUE, 
          encoding = "UTF-8")
 
-#tipo de def e raça
+#Tipo de deficiência e raça
 sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          var.col = dados_acm $DS_RACA_COR,
          show.exp = TRUE,
@@ -58,7 +57,7 @@ sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          show.col.prc = TRUE, 
          encoding = "UTF-8")
 
-#tipo de def e 
+#Tipo de deficiência e grau de escolaridade
 sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          var.col = dados_acm $DS_GRAU_ESCOLARIDADE,
          show.exp = TRUE,
@@ -67,7 +66,7 @@ sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          encoding = "UTF-8")
 
 
-
+#Tipo de deficiência e estado civil
 sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          var.col = dados_acm $DS_ESTADO_CIVIL,
          show.exp = TRUE,
@@ -75,6 +74,7 @@ sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          show.col.prc = TRUE, 
          encoding = "UTF-8")
 
+#Tipo de deficiência e Estado
 sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          var.col = dados_acm $SG_UF,
          show.exp = TRUE,
@@ -82,6 +82,7 @@ sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          show.col.prc = TRUE, 
          encoding = "UTF-8")
 
+#Tipo de deficiência e Região
 sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          var.col = dados_acm $REGIAO,
          show.exp = TRUE,
@@ -89,7 +90,7 @@ sjt.xtab(var.row = dados_acm $DS_TIPO_DEFICIENCIA,
          show.col.prc = TRUE, 
          encoding = "UTF-8")
 
-# Vamos gerar a ACM
+# Como todos as categorias analisadas possuem associação, podemos aplicar a ACM
 ACM <- dudi.acm(dados_acm, scannf = FALSE)
 
 # Analisando as variâncias de cada dimensão (tirando os autovalores)
@@ -101,13 +102,15 @@ quant_categorias <- apply(dados_acm,
                           MARGIN =  2,
                           FUN = function(x) nlevels(as.factor(x)))
 
-# Consolidando as coordenadas-padrão obtidas por meio da matriz binária
-#(puxando as coordenadas das 2 primeiras dimensoes)
+# Consolidando as coordenadas-padrão obtidas por meio da matriz binária (matriz de contingência
+#contendo as relações entre todas as variáveis qualitativas analisadas).
+#(puxando as coordenadas das 2 primeiras dimensões)
 
 df_ACM <- data.frame(ACM$c1, Variável = rep(names(quant_categorias),
                                             quant_categorias))
 
-# Plotando o mapa perceptual
+# Plotando o mapa perceptual (mapa no qual a proximidade dos pontos indica a similaridade entre as categorias
+# e a distância entre elas reflete a associação)
 df_ACM %>%
   rownames_to_column() %>%
   rename(Categoria = 1) %>%
@@ -125,11 +128,8 @@ str(df_ACM)
 
 print(df_ACM)
 
-
-
-
 # GERANDO UM MAPA 3D PARA VERIFICAR A PROFUNDIDADE DOS DADOS 
-
+                          
 # Criando a ACM
 ACM <- dudi.acm(dados_acm, scannf = FALSE, nf = 3)
 
@@ -164,16 +164,14 @@ ACM_3D <- add_trace(p = ACM_3D,
                     showlegend = FALSE)
 
 ACM_3D
-
-
-# Fim!
-
+# ------------------------------------------
+                          
 # Poderíamos fazer o mapa com as coordenadas obtidas por meio da matriz de Burt
 
 # Consolidando as coordenadas-padrão obtidas por meio da matriz de Burt
 df_ACM_burt <- data.frame(ACM$co, Variável = rep(names(quant_categorias),
                                               quant_categorias))
-# -- salvando os df com todas as coordenadas
+#Salvando os DF com todas as coordenadas
 
 write.csv(df_ACM_burt, "ACM_COORDENADAS.csv", row.names = FALSE) 
 
@@ -196,7 +194,7 @@ df_coord_obs <- ACM$li
 # -- salvando os df
 write.csv(df_coord_obs, "df_acm_burt.csv", row.names = FALSE) 
 
-# Plotando o mapa perceptual para genero
+# Plotando o mapa perceptual para gênero
 df_coord_obs %>%
   ggplot(aes(x = Axis1, y = Axis2, color = df_ACM_burt$DS_GENERO)) +
   geom_point() +
@@ -255,5 +253,5 @@ df_coord_obs %>%
        color = "DS_RACA_COR") +
   theme_bw()
 
-# -- salvando os df
+#Salvando os DF
 write.csv(acm_red_filtered, "nova_base.csv", row.names = FALSE)
