@@ -1,0 +1,7 @@
+# Ignorar arquivos grandes de dados
+data/*.csv
+*.RData
+*.rda
+*.xlsx
+*.zip
+*.tmp
