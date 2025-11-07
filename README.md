@@ -16,13 +16,13 @@
 </p>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/cibellyviegas" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-Cibelly%20Viegas-blue?style=flat&logo=linkedin"/>
+  <a href="https://www.linkedin.com/in/cibelly-viegas-de-souza-0584a8160/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-Cibelly%20Viegas-blue?style=for-the-badge&logo=linkedin"/>
   </a>
-  <a href="mailto:cibelly.viegas@gmail.com">
-    <img src="https://img.shields.io/badge/Contato-Email-red?style=flat&logo=gmail"/>
+  <a href="mailto:cibelly.viegas@gmail.com" target="_blank">
+    <img src="https://img.shields.io/badge/Email-cibelly.viegas%40gmail.com-red?style=for-the-badge&logo=gmail"/>
   </a>
-  <img src="https://img.shields.io/badge/Portfólio-Finalizado-success?style=flat"/>
+  <img src="https://img.shields.io/badge/Portfólio-Finalizado-success?style=for-the-badge"/>
 </p>
 
 ---
