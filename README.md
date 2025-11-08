@@ -31,101 +31,110 @@ A análise combina:
 
 ---
 
-## 🧠 Metodologia
+---
 
-| Etapa | Descrição |
-|-------|------------|
-| **1. Limpeza e preparação dos dados** | Tratamento, filtragem e padronização das variáveis qualitativas |
+<div align="center">
+
+## 🧩 Metodologia
+
+| 🧱 Etapa | 📝 Descrição |
+|----------|--------------|
+| **1. Limpeza e preparação dos dados** | Tratamento, filtragem e padronização das variáveis |
 | **2. ACM (Análise de Correspondência Múltipla)** | Redução dimensional e obtenção das coordenadas fatoriais |
 | **3. K-Means Clustering** | Identificação de grupos homogêneos de eleitores |
-| **4. Visualização e Interpretação** | Mapa perceptual, clusters por estado e região |
+| **4. Visualização e interpretação** | Mapas perceptuais e clusters por estado e região |
 | **5. Geração de insights** | Interpretação dos perfis regionais e variáveis predominantes |
 
+</div>
+
 ---
+
+<div align="center">
 
 ## ⚙️ K-Means Clustering — Resultados Técnicos
 
-| Métrica | Resultado |
-|----------|------------|
-| Número de Clusters (k) | 4 |
-| Método de Definição | Método do Cotovelo |
-| Variância Explicada | ~63% nas duas primeiras dimensões |
-| Variáveis Utilizadas | Variáveis fatoriais da ACM (CS1, CS2) |
+| 📊 Métrica | 🔍 Resultado |
+|------------|--------------|
+| **Número de Clusters (k)** | 4 |
+| **Método de Definição** | Método do Cotovelo |
+| **Variância Explicada** | ~63% nas duas primeiras dimensões |
+| **Variáveis Utilizadas** | Coordenadas fatoriais da ACM (CS1, CS2) |
 
+### 📉 Gráfico do Método do Cotovelo  
+<img src="output/metodo_cotovelo.png" width="80%">
 
-### 📈 Método do Cotovelo — Definição de K
+🔸 Representa a variação da soma dos erros quadrados (WSS) para diferentes valores de *k*.
 
-<p align="center">
-  <img src="output/metodo_cotovelo.png" width="80%">
-</p>
-
-> Representa a variação da soma dos erros quadrados (WSS) para diferentes valores de K.
-
+</div>
 
 ---
+
+<div align="center">
 
 ## 🗺️ Mapas e Visualizações
 
-### 🎯 Mapa Perceptual — K-Means Clustering
-<p align="center">
-  <img src="output/mapa_perceptual_clusters.png" width="80%">
-</p>
+### 🎯 Mapa Perceptual — K-Means Clustering  
+<img src="output/mapa_perceptual_clusters.png" width="80%">
 
-> Representa graficamente a relação entre as variáveis e a proximidade dos perfis de eleitores com deficiência.
+🧩 Representa graficamente a relação entre as variáveis e a proximidade dos perfis de eleitores com deficiência.
 
 ---
 
-### 🌎 Composição dos Clusters por Estado
+### 🌎 Composição dos Clusters por Estado (UF)  
+<img src="output/cluster_por_uf.png" width="80%">
 
-<p align="center">
-  <img src="output/cluster_por_uf.png" width="80%">
-</p>
-
-> Mostra a distribuição dos grupos (clusters) em cada unidade federativa.
+📊 Mostra a distribuição dos grupos (clusters) em cada unidade federativa.
 
 ---
 
-### 🧩 Composição dos Clusters por Região
-<p align="center">
-  <img src="output/cluster_por_regiao.png" width="80%">
-</p>
+### 🧭 Composição dos Clusters por Região  
+<img src="output/cluster_por_regiao.png" width="80%">
 
-> Evidencia o peso de cada região dentro dos quatro agrupamentos gerados pelo modelo K-Means.
+📈 Mostra a distribuição dos grupos (clusters) por macrorregião brasileira.
+
+</div>
+
+---
+
+<div align="center">
+
+## 🔍 Insights Analíticos
+
+A partir da **Análise de Correspondência Múltipla (ACM)** foi possível identificar **padrões relevantes de associação** entre as variáveis sociodemográficas e a distribuição dos eleitores com deficiência no Brasil.
+
+### 🌐 Principais Descobertas
+
+| 🧠 Insight | 💬 Interpretação |
+|------------|----------------|
+| **Diferenças regionais marcantes** | Regiões **Sul** e **Sudeste** apresentaram perfis com maior escolaridade e predominância de deficiência visual. |
+| **Norte e Nordeste** | Concentram eleitores com **deficiência física/locomoção**, menor nível de escolaridade e maior faixa etária. |
+| **Associação tipo de deficiência x faixa etária** | Deficiências auditivas aparecem em faixas etárias mais elevadas, enquanto múltiplas deficiências surgem entre os mais jovens. |
+| **Agrupamentos homogêneos** | O K-Means evidenciou **quatro grupos distintos**, alinhados a diferenças regionais e perfis educacionais. |
+
+</div>
 
 ---
 
-## 📊 Segmentação Regional e Perfil dos Clusters
-
-A análise de clusters revelou quatro grupos principais de eleitores com deficiência no Brasil:
-
-| Cluster | Regiões Predominantes | Tipo de Deficiência Predominante | Interpretação |
-|----------|-----------------------|----------------------------------|----------------|
-| **1** | Sudeste / Centro-Oeste | Locomoção e outros | Perfil urbano e envelhecido |
-| **2** | Sudeste / Nordeste | Locomoção | Desigualdade regional e contrastes socioeconômicos |
-| **3** | Norte / Nordeste | Visual | Vulnerabilidade e menor acesso a serviços |
-| **4** | Sul | Auditiva | Homogeneidade e diagnóstico precoce |
-
-Esses resultados reforçam como as **condições regionais e o tipo de deficiência estão interligados**,  
-indicando que políticas de acessibilidade e inclusão devem ser **regionalmente direcionadas**.
-
----
+<div align="center">
 
 ## 🧰 Ferramentas Utilizadas
 
 | Categoria | Ferramenta |
 |------------|-------------|
-| Linguagem | R |
-| Pacotes | `FactoMineR`, `factoextra`, `ggplot2`, `dplyr`, `plotly` |
-| Ambiente | RStudio |
-| Visualizações | Gráficos 2D e 3D, mapas perceptuais e análises comparativas |
+| **Linguagem** | R |
+| **Pacotes** | `FactoMineR`, `factoextra`, `ggplot2`, `dplyr`, `plotly` |
+| **Ambiente** | RStudio |
+| **Visualizações** | Gráficos 2D e 3D, mapas perceptuais e análises comparativas |
 
 ---
 
-## 🧑‍💻 Autoria
+## ✨ Autoria
 
-📘 **Projeto desenvolvido por [Cibelly Viegas](https://www.linkedin.com/in/cibelly-viegas-de-souza-0584a8160/)**  
+**Projeto desenvolvido por [Cibelly Viegas](https://www.linkedin.com/in/cibelly-viegas-de-souza-0584a8160/)**  
 📧 [cibelly.viegas@gmail.com](mailto:cibelly.viegas@gmail.com)  
-🎓 MBA em Data Science e Analytics  
+🎓 MBA em Data Science e Analytics
+
+</div>
 
 ---
 
