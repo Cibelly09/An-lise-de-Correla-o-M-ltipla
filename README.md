@@ -16,6 +16,7 @@
 </p>
 
 ---
+div align="center">
 
 ## 🎯 Objetivo
 
@@ -29,7 +30,8 @@ A análise combina:
 - **Análise de Correspondência Múltipla (ACM)** — para reduzir a dimensionalidade e revelar padrões entre variáveis categóricas;  
 - **K-Means Clustering** — para segmentar grupos com características semelhantes.
 
----
+</div>
+
 
 ---
 
@@ -137,4 +139,5 @@ A partir da **Análise de Correspondência Múltipla (ACM)** foi possível ident
 </div>
 
 ---
+
 
