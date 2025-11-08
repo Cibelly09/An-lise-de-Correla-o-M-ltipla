@@ -8,164 +8,116 @@
 
 ---
 
-<h1 align="center">🗳️ Análise de Correspondência Múltipla (ACM) — Perfil dos Eleitores com Deficiência no Brasil</h1>
+<h1 align="center">🗳️ Análise de Correspondência Múltipla (ACM) e Clusterização K-Means — Perfil dos Eleitores com Deficiência no Brasil</h1>
 
 <p align="center">
   <i>Projeto desenvolvido durante o MBA em Data Science e Analytics</i><br>
-  <i>Explorando dados eleitorais para compreender padrões sociodemográficos e regionais</i>
-</p>
-
-<p align="center">
-  <a href="https://www.linkedin.com/in/cibelly-viegas-de-souza-0584a8160/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-Cibelly%20Viegas-blue?style=for-the-badge&logo=linkedin"/>
-  </a>
-  <a href="mailto:cibelly.viegas@gmail.com" target="_blank">
-    <img src="https://img.shields.io/badge/Email-cibelly.viegas%40gmail.com-red?style=for-the-badge&logo=gmail"/>
-  </a>
-  <img src="https://img.shields.io/badge/Portfólio-Finalizado-success?style=for-the-badge"/>
-</p>
-
----
-
-<h1 align="center">🗳️ Análise de Correspondência Múltipla (ACM) — Perfil dos Eleitores com Deficiência no Brasil</h1>
-
-<p align="center">
-  <i>Projeto desenvolvido durante o MBA em Data Science e Analytics</i><br>
-  <i>Explorando dados eleitorais para compreender padrões sociodemográficos</i>
+  <i>Explorando dados eleitorais e padrões regionais de inclusão e acessibilidade</i>
 </p>
 
 ---
 
 ## 🎯 Objetivo
 
-Este projeto analisa o perfil dos **eleitores com deficiência no Brasil**, considerando variáveis como:
+Este projeto busca compreender **os perfis sociodemográficos dos eleitores com deficiência no Brasil**, analisando como variáveis como:
 
-> 🧓 Faixa etária · 💍 Estado civil · 🧬 Raça · 🚻 Gênero · 🗺️ Estado · 🌎 Região  
+> 🧓 Faixa etária · 💍 Estado civil · 🧬 Raça · 🚻 Gênero · 🗺️ Estado · 🌎 Região · 🦽 Tipo de deficiência  
 
-A técnica de **Análise de Correspondência Múltipla (ACM)** foi utilizada para identificar **associações e agrupamentos entre variáveis categóricas**, possibilitando compreender como o perfil dos eleitores varia por região e estado.
+se relacionam entre si e **formam agrupamentos distintos de eleitores**.
+
+A análise combina:
+- **Análise de Correspondência Múltipla (ACM)** — para reduzir a dimensionalidade e revelar padrões entre variáveis categóricas;  
+- **K-Means Clustering** — para segmentar grupos com características semelhantes.
 
 ---
 
 ## 🧠 Metodologia
 
-A **ACM** é uma técnica **não supervisionada** voltada para dados **qualitativos**, ideal para revelar padrões de associação entre categorias.  
-
-Etapas aplicadas:
-
-1. 🧹 **Limpeza e preparação dos dados**  
-2. 🔢 **Construção de tabelas de contingência**  
-3. 🧮 **Teste Qui-Quadrado (χ²)** para detectar associações significativas  
-4. 🎨 **Aplicação da ACM** (com `FactoMineR` e `factoextra`)  
-5. 🗺️ **Visualização dos agrupamentos** e interpretação dos eixos fatoriais  
+| Etapa | Descrição |
+|-------|------------|
+| **1. Limpeza e preparação dos dados** | Tratamento, filtragem e padronização das variáveis qualitativas |
+| **2. ACM (Análise de Correspondência Múltipla)** | Redução dimensional e obtenção das coordenadas fatoriais |
+| **3. K-Means Clustering** | Identificação de grupos homogêneos de eleitores |
+| **4. Visualização e Interpretação** | Mapa perceptual, clusters por estado e região |
+| **5. Geração de insights** | Interpretação dos perfis regionais e variáveis predominantes |
 
 ---
 
-## 📊 Principais Resultados
+## ⚙️ K-Means Clustering — Resultados Técnicos
 
-✅ Identificação de **grupos de estados com perfis eleitorais semelhantes**  
-✅ Fortes associações entre **região geográfica e características sociodemográficas**  
-✅ Evidência de **diferenças entre Norte/Nordeste e Sul/Sudeste**  
-✅ Visualização intuitiva dos perfis a partir de **mapas perceptuais**
+| Métrica | Resultado |
+|----------|------------|
+| Número de Clusters (k) | 4 |
+| Método de Definição | Método do Cotovelo |
+| Variância Explicada | ~63% nas duas primeiras dimensões |
+| Variáveis Utilizadas | Variáveis fatoriais da ACM (CS1, CS2) |
 
----
-
-## 🧰 Tecnologias e Ferramentas
-
-| Categoria | Ferramentas |
-|------------|--------------|
-| **Linguagem** | R |
-| **Principais pacotes** | `FactoMineR`, `factoextra`, `dplyr`, `ggplot2` |
-| **Etapas** | Limpeza, Contingência, ACM, Visualização |
-| **Ambiente** | RStudio |
+📈 **Gráfico do Método do Cotovelo:**
+![Método do Cotovelo](output/metodo_cotovelo.png)
 
 ---
 
-## 📁 Estrutura do Projeto
+## 🗺️ Mapas e Visualizações
 
-| Pasta | Descrição |
-|--------|------------|
-| 📂 **data/** | Bases de dados tratadas e limpas utilizadas na análise |
-| 📂 **script/** | Scripts em R com a lógica de limpeza, cruzamento e análise |
-| 📂 **output/** | Mapas perceptuais, gráficos e resultados finais |
-| ⚙️ **.gitignore** | Lista de arquivos ignorados no versionamento |
-| 📜 **README.md** | Documentação do projeto |
-| 🧠 **PROJECT_OFICIAL.Rproj** | Projeto RStudio principal |
+### 🎯 Mapa Perceptual — K-Means Clustering
+<p align="center">
+  <img src="output/mapa_perceptual_clusters.png" width="80%">
+</p>
+
+> Representa graficamente a relação entre as variáveis e a proximidade dos perfis de eleitores com deficiência.
 
 ---
 
-## 🌐 Resultados Visuais
+### 🌍 Composição dos Clusters por Estado
+<p align="center">
+  <img src="output/cluster_por_estado.png" width="80%">
+</p>
 
-Exemplo de mapa perceptual gerado:  
-
-![Mapa ACM](output/mapa_acm_perfil.png)
-
----
-
-## 🔍 Insights Analíticos
-
-A partir da Análise de Correspondência Múltipla (ACM), foi possível observar **padrões relevantes de associação** entre as variáveis sociodemográficas e a distribuição dos eleitores com deficiência no Brasil.  
-
-### 🧩 Principais Descobertas
-
-1. **Diferenças regionais marcantes**  
-   - Estados do **Sul e Sudeste** apresentaram perfis semelhantes, com maior escolaridade e predominância de deficiência visual.  
-   - Já no **Norte e Nordeste**, há maior proporção de eleitores com deficiência física ou de locomoção, com menor nível de escolaridade e maior concentração nas faixas etárias acima de 45 anos.  
-
-2. **Associação entre tipo de deficiência e faixa etária**  
-   - Deficiências auditivas se destacaram em faixas etárias mais elevadas.  
-   - Deficiências intelectuais e múltiplas aparecem mais entre os grupos jovens.
-
-3. **Influência do estado civil e gênero**  
-   - Pessoas casadas e do sexo masculino concentraram maior incidência de deficiências de locomoção.  
-   - Mulheres apresentaram maior presença entre as deficiências visuais e auditivas.  
-
-4. **Relação com acessibilidade dos locais de votação**  
-   - Estados com menor índice de acessibilidade nos locais de votação também apresentaram menor registro de eleitores com deficiência, indicando possíveis barreiras de acesso ao processo eleitoral.
+> Mostra a distribuição dos grupos (clusters) em cada unidade federativa.
 
 ---
 
-## 📈 Conclusão
+### 🧩 Composição dos Clusters por Região
+<p align="center">
+  <img src="output/cluster_por_regiao.png" width="80%">
+</p>
 
-A Análise de Correspondência Múltipla mostrou-se uma ferramenta poderosa para **entender o comportamento e a distribuição dos eleitores com deficiência** no Brasil, revelando desigualdades regionais e sociais ainda existentes.  
-
-Esses achados podem contribuir para políticas públicas voltadas à **acessibilidade eleitoral e inclusão social**, fornecendo um diagnóstico estatístico e visual do cenário brasileiro.  
-
----
-
-⭐ *Projeto desenvolvido por **Cibelly Viegas**, durante o MBA em Data Science e Analytics — 2025.*
+> Evidencia o peso de cada região dentro dos quatro agrupamentos gerados pelo modelo K-Means.
 
 ---
-
-## ✨ Autoria
-
-📍 **Cibelly Viegas**  
-MBA em Data Science e Analytics  
-📅 2025  
-
----
-
-⭐ *Se gostou do projeto, não esqueça de deixar um star no repositório!*  
 
 ## 📊 Segmentação Regional e Perfil dos Clusters
 
 A análise de clusters revelou quatro grupos principais de eleitores com deficiência no Brasil:
 
-- **Cluster 1 – Sudeste/Centro-Oeste:** Deficiência de locomoção, perfil urbano e envelhecido.
-- **Cluster 2 – Sudeste/Nordeste:** Distribuição mista, marcada por desigualdade regional.
-- **Cluster 3 – Norte/Nordeste:** Deficiência visual, maior vulnerabilidade social.
-- **Cluster 4 – Sul:** Deficiência auditiva, maior homogeneidade e melhor estrutura de diagnóstico.
+| Cluster | Regiões Predominantes | Tipo de Deficiência Predominante | Interpretação |
+|----------|-----------------------|----------------------------------|----------------|
+| **1** | Sudeste / Centro-Oeste | Locomoção e outros | Perfil urbano e envelhecido |
+| **2** | Sudeste / Nordeste | Locomoção | Desigualdade regional e contrastes socioeconômicos |
+| **3** | Norte / Nordeste | Visual | Vulnerabilidade e menor acesso a serviços |
+| **4** | Sul | Auditiva | Homogeneidade e diagnóstico precoce |
 
-Esses resultados reforçam como as **condições regionais e o tipo de deficiência estão interligados**, indicando que políticas de acessibilidade e inclusão devem ser **regionalmente direcionadas**.
+Esses resultados reforçam como as **condições regionais e o tipo de deficiência estão interligados**,  
+indicando que políticas de acessibilidade e inclusão devem ser **regionalmente direcionadas**.
 
+---
 
-## 📊 Segmentação Regional e Perfil dos Clusters
+## 🧰 Ferramentas Utilizadas
 
-A análise de clusters revelou quatro grupos principais de eleitores com deficiência no Brasil:
+| Categoria | Ferramenta |
+|------------|-------------|
+| Linguagem | R |
+| Pacotes | `FactoMineR`, `factoextra`, `ggplot2`, `dplyr`, `plotly` |
+| Ambiente | RStudio |
+| Visualizações | Gráficos 2D e 3D, mapas perceptuais e análises comparativas |
 
-- **Cluster 1 – Sudeste/Centro-Oeste:** Deficiência de locomoção, perfil urbano e envelhecido.
-- **Cluster 2 – Sudeste/Nordeste:** Distribuição mista, marcada por desigualdade regional.
-- **Cluster 3 – Norte/Nordeste:** Deficiência visual, maior vulnerabilidade social.
-- **Cluster 4 – Sul:** Deficiência auditiva, maior homogeneidade e melhor estrutura de diagnóstico.
+---
 
-Esses resultados reforçam como as **condições regionais e o tipo de deficiência estão interligados**, indicando que políticas de acessibilidade e inclusão devem ser **regionalmente direcionadas**.
+## 🧑‍💻 Autoria
+
+📘 **Projeto desenvolvido por [Cibelly Viegas](https://www.linkedin.com/in/cibelly-viegas-de-souza-0584a8160/)**  
+📧 [cibelly.viegas@gmail.com](mailto:cibelly.viegas@gmail.com)  
+🎓 MBA em Data Science e Analytics  
+
+---
 
