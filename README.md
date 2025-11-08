@@ -52,8 +52,15 @@ A análise combina:
 | Variância Explicada | ~63% nas duas primeiras dimensões |
 | Variáveis Utilizadas | Variáveis fatoriais da ACM (CS1, CS2) |
 
-📈 **Gráfico do Método do Cotovelo:**
-![Método do Cotovelo](output/metodo_cotovelo.png)
+
+### 📈 Método do Cotovelo — Definição de K
+
+<p align="center">
+  <img src="output/metodo_cotovelo.png" width="80%">
+</p>
+
+> Representa a variação da soma dos erros quadrados (WSS) para diferentes valores de K.
+
 
 ---
 
@@ -68,9 +75,10 @@ A análise combina:
 
 ---
 
-### 🌍 Composição dos Clusters por Estado
+### 🌎 Composição dos Clusters por Estado
+
 <p align="center">
-  <img src="output/cluster_por_estado.png" width="80%">
+  <img src="output/cluster_por_uf.png" width="80%">
 </p>
 
 > Mostra a distribuição dos grupos (clusters) em cada unidade federativa.
