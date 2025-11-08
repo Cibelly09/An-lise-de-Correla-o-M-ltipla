@@ -145,3 +145,27 @@ MBA em Data Science e Analytics
 ---
 
 ⭐ *Se gostou do projeto, não esqueça de deixar um star no repositório!*  
+
+## 📊 Segmentação Regional e Perfil dos Clusters
+
+A análise de clusters revelou quatro grupos principais de eleitores com deficiência no Brasil:
+
+- **Cluster 1 – Sudeste/Centro-Oeste:** Deficiência de locomoção, perfil urbano e envelhecido.
+- **Cluster 2 – Sudeste/Nordeste:** Distribuição mista, marcada por desigualdade regional.
+- **Cluster 3 – Norte/Nordeste:** Deficiência visual, maior vulnerabilidade social.
+- **Cluster 4 – Sul:** Deficiência auditiva, maior homogeneidade e melhor estrutura de diagnóstico.
+
+Esses resultados reforçam como as **condições regionais e o tipo de deficiência estão interligados**, indicando que políticas de acessibilidade e inclusão devem ser **regionalmente direcionadas**.
+
+
+## 📊 Segmentação Regional e Perfil dos Clusters
+
+A análise de clusters revelou quatro grupos principais de eleitores com deficiência no Brasil:
+
+- **Cluster 1 – Sudeste/Centro-Oeste:** Deficiência de locomoção, perfil urbano e envelhecido.
+- **Cluster 2 – Sudeste/Nordeste:** Distribuição mista, marcada por desigualdade regional.
+- **Cluster 3 – Norte/Nordeste:** Deficiência visual, maior vulnerabilidade social.
+- **Cluster 4 – Sul:** Deficiência auditiva, maior homogeneidade e melhor estrutura de diagnóstico.
+
+Esses resultados reforçam como as **condições regionais e o tipo de deficiência estão interligados**, indicando que políticas de acessibilidade e inclusão devem ser **regionalmente direcionadas**.
+
