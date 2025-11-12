@@ -145,8 +145,3 @@ A **Análise de Correspondência Múltipla (ACM)** revelou **padrões relevantes
 🎓 MBA em Data Science e Analytics  
 
 </div>
-
-
-
-## 🗺️ Clusters por Região
-![Cluster Região](output/cluster_por_regiao.png)
